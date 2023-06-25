@@ -1,0 +1,30 @@
+{% extends "principal.html" %}
+{% block contentido %}
+
+  <h3>Lista de Epps</h3>
+  <p><b>Número de Epps: ({{numero_epps}})</b> </p>
+  <table id="tabla_datos">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Stock</th>      
+    </tr>
+    </thead>
+    <tbody>
+    {% for epp in epps  %}
+      <tr>
+        <td>{{epp.nombre}}</td>
+        <td>{{epp.tipo}}</td>
+        <td>{{epp.stock}}</td>        
+      </tr>
+      {% endfor %}
+
+    </table>
+  </tbody>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#tabla_datos').DataTable();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "principal.html" %}
+{% block contentido %}
+
+  <h3>Lista de Ferreterias</h3>
+  <p><b>Número de Ferreterias: ({{numero_ferreterias}})</b> </p>
+  <table id="tabla_datos">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Stock</th>      
+    </tr>
+    </thead>
+    <tbody>
+    {% for ferreteria in ferreterias  %}
+      <tr>
+        <td>{{ferreteria.nombre}}</td>
+        <td>{{ferreteria.tipo}}</td>
+        <td>{{ferreteria.stock}}</td>        
+      </tr>
+      {% endfor %}
+
+    </table>
+  </tbody>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#tabla_datos').DataTable();
+        });
+    </script>
+{% endblock %}
